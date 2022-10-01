@@ -4,7 +4,7 @@ CREATE TABLE posts (
     -- not displayed
     postID INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    userID INTEGER NOT NULL,
+    userID TEXT NOT NULL,
     
     -- displayed
     songID TEXT NOT NULL,
