@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { globalTheme } from './Theme';
-import WebPlayback from './WebPlayback';
-import { Login } from './containers/Login/index';
-import './App.css';
+import Navbar from './components/Navbar/index';
+import Home from './containers/Home/index';
+import Listen from './containers/Listen/index';
+import Login from './containers/Login/index';
 
-function App() {
+const App = () => {
 
   const [token, setToken] = useState('');
 
@@ -23,9 +24,14 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={globalTheme}>
+    <ThemeProvider theme = {globalTheme}>
       <Routes>
-        <Route path="/" element={ (token === '') ? <Login/> : <WebPlayback token={token} /> } />
+        <Route path="/listen" element={ (token === '') ? <Login/> : 
+                                                          <div>
+                                                            <Navbar props="Listen" />
+                                                            <Listen token={token} /> 
+                                                          </div> } />
+        <Route path='/' element={<Home />} props="Home"/>
       </Routes>
     </ThemeProvider>
   );

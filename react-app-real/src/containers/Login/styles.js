@@ -1,9 +1,10 @@
-import styled from 'styled-comonents';
+import styled from 'styled-components';
 
-export const LogButton = styled.button = `
-    color: ${({theme}) => theme.color.login_button};
+export const LogButton = styled.button`
+    color: ${({theme}) => theme.color.layout.login_button};
+    font-family: ${({theme}) => theme.font.body.font_family};
     font-size: ${({theme}) => theme.font.body.font_size};
-    position: center;
+    font-color: "white";
     align-items: center;
-    text-color: white;
+    position: center;
 `
