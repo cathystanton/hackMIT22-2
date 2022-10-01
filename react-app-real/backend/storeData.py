@@ -3,30 +3,26 @@ from markupsafe import escape
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 import sqlite3
+import hashlib
 
 app = Flask(__name__)
-db_path = 'backend/mock.db'
+db_path = 'react-app-real/backend/mock.db'
 connection = sqlite3.connect(db_path)
-
-with open('backend/schema.sql') as f:
-    connection.executescript(f.read())
-
-cur = connection.cursor()
-cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('First Post', 'Content for the first post')
-            )
-cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('Second Post', 'Content for the second post')
-            )
-connection.commit()
-connection.close()
 
 def get_db_connection():
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
-# for later
+# anonymizes username into unique hash
+def processUsername(username):
+    m = hashlib.md5()
+    m.update(username)
+    return str(int(m.hexdigest(), 16))[0:12]
+
+
+
+# index page. Should filter for user
 @app.route("/")
 def index():
     conn = get_db_connection()
@@ -34,8 +30,14 @@ def index():
     conn.close()
     return render_template('index.html', posts=posts)
 
-# for later use
-@app.route('/user/<username>')
-def show_user_profile(username):
-    # show the user profile for that user
-    return f'User {escape(username)}'
+# adds a post to the database. User is hardcoded as 1, add later when we get 
+# multi-user functionality - is this the right app.route approach?
+@app.route('/<username>/<songID>/<journalEntry>/<emotion>')
+def add_post(username, songID, journalEntry, emotion):
+    with open('react-app-real/backend/schema.sql') as f:
+        connection.executescript(f.read())
+    cur = connection.cursor()
+    cur.execute("INSERT INTO posts (userID, songID, journalEntry, emotion) VALUES (?, ?, ?, ?)",
+            (processUsername(username), songID, journalEntry, emotion))
+    connection.commit()
+    connection.close()
