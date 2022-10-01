@@ -3,6 +3,8 @@ const globalTheme = {
         layout: {
             background: "#ADC9CD",
             login_button: "#47878E",
+            //navbar: "#",
+            //navbar_highlight: "#",
         },
         font: {
             header: "black",
