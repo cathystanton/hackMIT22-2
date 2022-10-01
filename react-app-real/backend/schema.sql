@@ -7,7 +7,7 @@ CREATE TABLE posts (
     userID INTEGER NOT NULL,
     
     -- displayed
-    albumCoverLink TEXT NOT NULL,
+    songID TEXT NOT NULL,
     journalEntry TEXT NOT NULL,
     emotion TEXT NOT NULL
 );
