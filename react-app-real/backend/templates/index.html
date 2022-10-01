@@ -6,7 +6,8 @@
         <div class='post'>
             <p>{{ post['created'] }}</p>
             <h2>{{ post['title'] }}</h2>
-            <p>{{ post['content'] }}</p>
+            <p>{{ post['journalEntry'] }}</p>
+            <p id="{{ post['emotion'] }}">{{ post['emotion'] }}</p>
         </div>
     {% endfor %}
 {% endblock %}

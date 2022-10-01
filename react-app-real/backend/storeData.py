@@ -5,18 +5,18 @@ from sqlalchemy.sql import text
 import sqlite3
 
 app = Flask(__name__)
-db_path = 'backend/mock.db'
+db_path = 'react-app-real/backend/mock.db'
 connection = sqlite3.connect(db_path)
 
-with open('backend/schema.sql') as f:
+with open('react-app-real/backend/schema.sql') as f:
     connection.executescript(f.read())
 
 cur = connection.cursor()
-cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('First Post', 'Content for the first post')
+cur.execute("INSERT INTO posts (userID, albumCoverLink, journalEntry, emotion) VALUES (?, ?, ?, ?)",
+            (1, 'www.google.com', 'Content for the first post', 'sad')
             )
-cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('Second Post', 'Content for the second post')
+cur.execute("INSERT INTO posts (userID, albumCoverLink, journalEntry, emotion) VALUES (?, ?, ?, ?)",
+            (1, 'www.google.com', 'Content for the first post', 'sad')
             )
 connection.commit()
 connection.close()
