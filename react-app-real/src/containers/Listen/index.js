@@ -2,9 +2,7 @@ import React from "react";
 import {Box} from './styles';
 
 const ListenBox = () => {
-    <Box>
-        
-    </Box>
+    <Box />
 }
 
 export default ListenBox;
