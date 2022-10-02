@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import globalTheme from './Theme';
-import Navbar from './components/Navbar/index';
-import Home from './containers/Home/index';
-import Listen from './containers/Listen/index';
-import Login from './containers/Login/index';
+import WebPlayback from './WebPlayback'
+import Login from './Login'
+import './App.css';
 
-const App = () => {
+function App() {
 
   const [token, setToken] = useState('');
 
@@ -21,21 +17,14 @@ const App = () => {
 
     getToken();
 
-  }, [])
+  }, []);
 
   return (
-    <ThemeProvider theme = {globalTheme}>
-      <Routes>
-        <Route path="/listen" element={ <>(token === '') ? <Login /> : 
-                                            <div>
-                                              <Navbar props="Listen" />
-                                              <Listen token={token} /> 
-                                            </div>
-                                        </> } />
-        <Route path='/' element={<Home />} props="Home"/>
-      </Routes>
-    </ThemeProvider>
+    <>
+        { (token === '') ? <Login/> : <WebPlayback token={token} /> }
+    </>
   );
-};
+}
+
 
 export default App;
