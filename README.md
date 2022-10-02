@@ -1,4 +1,5 @@
 # hackMIT22 Project - MusicNotes
+Note: this project is a WIP. Please see **Next Steps** for our future goals!
 ## Project Vision
 Our project, MusicNotes, designs a journal app that is integrated with the Spotify API. Users use the app as a daily journal, searching for and listening to a song that they feel represents their current mood. They can then journal while listening to the song and save their response when they are done. Users can read their past entries and even analyze their past data.
 
@@ -11,7 +12,7 @@ Our team of developers utilized Spotify for Developers in React.js and Python on
 Key players in the journaling industry include Day One, Daylio, and Cozi. These applications provide a platform to log daily habits and emotions. MusicNotes differentiates with three benefits: music integration, self reflection, and therapist connections. Finally, with more time and money, we would set up a server for our database instead of hosting it locally.
 
 ## Next Steps
-We had some trouble integrating the Spotify API on the frontend, so more work will definitely be needed there. Additionally, something fun to consider would be user privacy, especially if this project is being used in the context of medicine or therapy. Overall, we had a great time working on our first hackathon project :)
+We had some trouble integrating the Spotify API on the frontend, so more work will definitely be needed there. As a result, we had to make a hacky-webpage with flask, but it conveys the vision of our project! Additionally, something fun to consider would be user privacy, especially if this project is being used in the context of medicine or therapy. Overall, we had a great time working on our first hackathon project :)
 ### Future UI/UX Designs
 [Simple Prototype - mocked up in Figma](https://www.figma.com/file/5zDoGoSKbvQug9ozuX7lIe/MusicNotes?node-id=0%3A1)<br>
 [Future Visions - mocked up in Canva](https://www.canva.com/design/DAFN02TS_tY/npT5w1Yut4ClYFYZkDdxxg/view?utm_content=DAFN02TS_tY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)<br>
