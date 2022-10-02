@@ -43,4 +43,6 @@ def new_SQL():
     connection.row_factory = sqlite3.Row
     with open('react-app-real/backend/schema.sql') as f:
         connection.executescript(f.read())
+    connection.commit()
+    connection.close()
 
