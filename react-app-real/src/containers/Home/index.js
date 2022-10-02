@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 
-
-
 export default function Home() {
     return (
         <Content />
@@ -21,6 +19,10 @@ function Content(){
         setSearchInput(event.target.value);
     };
 
+    const img = (
+        <img src="./src/containers/Home/musicnotes.png" alt="MusicNotes Logo"></img>
+    )
+
     const searchBar = (
         <div className="search">
             <form onSubmit={handleSearch}>
@@ -33,9 +35,10 @@ function Content(){
             </form>
       </div>
     )
-
+    
     return (
         <div className="home">
+            {/* {img} */}
             <div className="home-search">
                 <div className="search">
                 {searchBar}
