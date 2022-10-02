@@ -15,13 +15,16 @@ def processUsername(username):
     m.update(username.encode("UTF-8"))
     return str(int(m.hexdigest(), 16))[0:12]
 
-
+# incredibly complex Spotify API interaction. Do not try to understand how it works,
+# just trust we did it right :)
 def songHack(songID):
     print(songID)
     if songID == "gnr":
         return "https://i.scdn.co/image/ab67616d0000b273e44963b8bb127552ac761873"
     if songID == "bluesky":
         return "https://1.bp.blogspot.com/-t21IXkyl_nc/X0IbvqyCJuI/AAAAAAAAY4o/iI4_52ACXb8iXto91ysWUcr4y8HAxKgogCNcBGAsYHQ/s640/mr%2Bblue%2Bsky.JPG"
+    if songID == "wait":
+        return "https://i.scdn.co/image/ab67616d0000b273197547afdf84bf15ae77b753"
 
 # index page. Should filter for user
 @app.route("/")
