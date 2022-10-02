@@ -14,29 +14,34 @@
 input[type="text"] {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: Montserrat;
 }
 
 input[type="submit"] {
   margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
   cursor: pointer;
   font-size: 15px;
-  background: #01d28e;
-  border: 1px solid #01d28e;
+  background: #47878E;
+  border: 0px;
   color: #fff;
   padding: 20px 20px;
+  font-family: Montserrat;
 }
 
 input[type="submit"]:hover {
-  background: #6cf0c2;
+  background: #47878E;
 }
 
 .search {
-  background:#01d28e;
+  background:#47878E;
 }
 
 .search-input-container {
   background-color: white;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .search-submit-button-container {
