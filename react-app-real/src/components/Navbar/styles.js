@@ -40,7 +40,7 @@ export const Right = styled.div`
 `
 
 export const UpdatedLink = styled(Link)`
-  color: ${({theme}) => theme.color.layout.};
+  color: ${({theme}) => theme.color.layout.navbar};
   text-decoration: none;
 
   &:hover {

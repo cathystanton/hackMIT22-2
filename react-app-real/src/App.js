@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { globalTheme } from './Theme';
+import globalTheme from './Theme';
 import Navbar from './components/Navbar/index';
 import Home from './containers/Home/index';
 import Listen from './containers/Listen/index';
@@ -21,12 +21,12 @@ const App = () => {
 
     getToken();
 
-  }, []);
+  }, [])
 
   return (
     <ThemeProvider theme = {globalTheme}>
       <Routes>
-        <Route path="/listen" element={ (token === '') ? <Login/> : 
+        <Route path="/listen" element={ (token === '') ? <Login /> : 
                                                           <div>
                                                             <Navbar props="Listen" />
                                                             <Listen token={token} /> 
@@ -35,6 +35,6 @@ const App = () => {
       </Routes>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

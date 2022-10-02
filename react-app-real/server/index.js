@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const dotenv = require('dotenv');
 
 const port = 5000
@@ -30,7 +30,7 @@ var generateRandomString = function (length) {
   return text;
 };
 
-router.get('/auth/login', (req, res) => {
+app.get('/auth/login', (req, res) => {
 
   var scope = "streaming \
                user-read-email \
@@ -67,7 +67,7 @@ app.get('/auth/callback', (req, res) => {
     json: true
   };
 
-  request.post(authOptions, function(error, response, body) {
+app.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
       res.redirect('/')
