@@ -26,11 +26,12 @@ const App = () => {
   return (
     <ThemeProvider theme = {globalTheme}>
       <Routes>
-        <Route path="/listen" element={ (token === '') ? <Login /> : 
-                                                          <div>
-                                                            <Navbar props="Listen" />
-                                                            <Listen token={token} /> 
-                                                          </div> } />
+        <Route path="/listen" element={ <>(token === '') ? <Login /> : 
+                                            <div>
+                                              <Navbar props="Listen" />
+                                              <Listen token={token} /> 
+                                            </div>
+                                        </> } />
         <Route path='/' element={<Home />} props="Home"/>
       </Routes>
     </ThemeProvider>
