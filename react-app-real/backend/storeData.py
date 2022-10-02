@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Request, redirect
 from markupsafe import escape
 from flask_sqlalchemy import SQLAlchemy
+from numpy import equal
 from sqlalchemy.sql import text
 import sqlite3
 import hashlib
@@ -13,6 +14,14 @@ def processUsername(username):
     m = hashlib.md5()
     m.update(username.encode("UTF-8"))
     return str(int(m.hexdigest(), 16))[0:12]
+
+
+def songHack(songID):
+    print(songID)
+    if songID == "gnr":
+        return "https://i.scdn.co/image/ab67616d0000b273e44963b8bb127552ac761873"
+    if songID == "bluesky":
+        return "https://1.bp.blogspot.com/-t21IXkyl_nc/X0IbvqyCJuI/AAAAAAAAY4o/iI4_52ACXb8iXto91ysWUcr4y8HAxKgogCNcBGAsYHQ/s640/mr%2Bblue%2Bsky.JPG"
 
 # index page. Should filter for user
 @app.route("/")
@@ -29,7 +38,7 @@ def add_post(username, songID, journalEntry, emotion):
     connection = sqlite3.connect(db_path, isolation_level=None)
     cur = connection.cursor()
     cur.execute("INSERT INTO posts (userID, songID, journalEntry, emotion) VALUES (?, ?, ?, ?)",
-            (processUsername(username), songID, journalEntry, emotion))
+            (processUsername(username), songHack(songID), journalEntry, emotion))
     connection.commit()
     connection.close()
 
